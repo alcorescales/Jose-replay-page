@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch the Replay – Content To Cash Masterclass | Jose</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Urbanist:wght@800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0b0d14;
+    --dark:    #0e1018;
+    --card:    #131620;
+    --card2:   #181c28;
+    --border:  #1f2333;
+    --purple:  #6C63FF;
+    --purple2: #8B85FF;
+    --purple-dim: rgba(108,99,255,0.12);
+    --purple-glow: rgba(108,99,255,0.30);
+    --white:   #F0F0FF;
+    --grey:    #6B7280;
+    --mid:     #9CA3AF;
+    --red:     #FF4444;
+    --gold:    #F5C542;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--white); font-family:'Figtree',sans-serif; line-height:1.6; overflow-x:hidden; padding-bottom:80px; }
+
+  /* TOP NAV */
+  .top-nav {
+    position:sticky; top:0; z-index:200;
+    background:rgba(11,13,20,0.97); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 32px; height:52px;
+  }
+  .replay-badge {
+    background:rgba(108,99,255,0.10); border:1px solid rgba(108,99,255,0.28);
+    color:var(--purple2); font-size:0.72rem; font-weight:700; letter-spacing:0.1em;
+    padding:4px 12px; border-radius:3px; text-transform:uppercase;
+    display:flex; align-items:center; gap:7px;
+  }
+  .replay-dot { width:7px; height:7px; border-radius:50%; background:var(--purple2); animation:pulse 1.8s infinite; }
+  .nav-center { font-size:0.84rem; color:var(--mid); font-weight:500; display:flex; align-items:center; gap:6px; }
+  .nav-right  { font-size:0.82rem; font-weight:700; color:var(--red); display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.03em; }
+
+  /* EXPIRE COUNTDOWN BAR */
+  .expire-bar {
+    background: linear-gradient(90deg, rgba(255,68,68,0.12) 0%, rgba(255,68,68,0.06) 100%);
+    border-bottom: 1px solid rgba(255,68,68,0.22);
+    padding: 11px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    flex-wrap: wrap; text-align: center;
+  }
+  .expire-label { font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); }
+  .expire-cd { display:flex; align-items:center; gap:6px; }
+  .ecd-block { background:var(--card); border:1px solid rgba(255,68,68,0.28); border-radius:4px; padding:5px 10px; text-align:center; min-width:46px; }
+  .ecd-num { font-size:1.05rem; font-weight:800; color:var(--red); line-height:1; }
+  .ecd-label { font-size:0.55rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--grey); margin-top:2px; }
+  .ecd-sep { font-size:1rem; font-weight:700; color:rgba(255,68,68,0.5); }
+
+  /* HERO */
+  .hero {
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:70px 24px 60px; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%);
+    width:900px; height:600px;
+    background:radial-gradient(ellipse at center, rgba(108,99,255,0.18) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .hero-badge {
+    display:inline-block; border:1px solid rgba(108,99,255,0.45); color:var(--purple2);
+    font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    padding:8px 22px; border-radius:100px; margin-bottom:28px;
+    position:relative; z-index:1; animation:fadeDown 0.5s ease both;
+  }
+  .hero h1 {
+    font-family:'Urbanist', sans-serif;
+    font-size:clamp(2.4rem,6.5vw,6rem); font-weight:900; line-height:1.0;
+    letter-spacing:-0.04em;
+    position:relative; z-index:1; animation:fadeDown 0.5s ease 0.08s both; max-width:920px;
+  }
+  .hero h1 .hi {
+    color:var(--purple2);
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic; font-size:1.1em; font-weight:700; letter-spacing:-0.02em;
+  }
+  .hero-sub {
+    font-size:clamp(0.95rem,2vw,1.15rem); color:var(--mid); max-width:600px; margin:24px auto 0;
+    position:relative; z-index:1; animation:fadeDown 0.5s ease 0.16s both; line-height:1.75;
+  }
+  .hero-sub em { color:var(--white); font-style:italic; }
+
+  /* VIDEO BOX */
+  .video-wrap {
+    position:relative; z-index:1; margin-top:44px; width:100%; max-width:800px;
+    animation:fadeDown 0.5s ease 0.24s both;
+  }
+  .video-box {
+    background:var(--card); border:1px solid var(--border); border-radius:8px;
+    overflow:hidden; position:relative;
+  }
+  .video-embed { position:relative; padding-bottom:56.25%; height:0; }
+  .video-embed iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+  /* CTA BLOCK */
+  .btn {
+    display:block; width:100%; background:var(--purple); color:#fff;
+    font-size:1rem; font-weight:800; letter-spacing:0.09em; text-transform:uppercase;
+    padding:20px 40px; border:none; cursor:pointer; text-decoration:none; border-radius:6px;
+    transition:background 0.2s, transform 0.2s, box-shadow 0.2s; text-align:center;
+  }
+  .btn:hover { background:var(--purple2); transform:translateY(-2px); box-shadow:0 12px 40px var(--purple-glow); }
+  .cta-block {
+    position:relative; z-index:1; margin-top:28px; width:100%; max-width:640px;
+    animation:fadeDown 0.5s ease 0.32s both; display:flex; flex-direction:column; align-items:center; gap:12px;
+  }
+  .cta-note { font-size:0.78rem; color:var(--grey); letter-spacing:0.04em; }
+  .cta-note span { color:var(--gold); font-weight:700; }
+
+  /* SECTION LABELS */
+  .section-label { font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--purple2); margin-bottom:14px; }
+  .section-title { font-size:clamp(2rem,4.5vw,3.4rem); font-weight:900; line-height:1.0; text-transform:uppercase; letter-spacing:-0.02em; margin-bottom:20px; }
+  .section-body { font-size:1.05rem; color:var(--mid); max-width:600px; line-height:1.8; }
+
+  /* TICKER */
+  .ticker-wrap { overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:14px 0; background:var(--card); }
+  .ticker-inner { display:flex; gap:56px; animation:ticker 22s linear infinite; width:max-content; }
+  .ticker-item { font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); white-space:nowrap; display:flex; align-items:center; gap:14px; }
+  .ticker-dot { width:4px; height:4px; background:var(--purple); border-radius:50%; }
+
+  /* WHAT WAS COVERED */
+  .covered-bg { background:var(--dark); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:90px 5%; }
+  .covered-wrap { max-width:1100px; margin:0 auto; }
+  .covered-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:52px; }
+  @media(max-width:880px){ .covered-grid{grid-template-columns:1fr;} }
+  .covered-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:40px 32px; position:relative; overflow:hidden; transition:border-color 0.3s; }
+  .covered-card:hover { border-color:var(--purple); }
+  .covered-num { font-size:5rem; font-weight:900; color:var(--purple); opacity:0.1; line-height:1; position:absolute; top:12px; right:20px; }
+  .covered-card h3 { font-size:1.3rem; font-weight:900; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:14px; position:relative; z-index:1; }
+  .covered-card h3 span { color:var(--purple2); }
+  .covered-card p { font-size:0.93rem; color:var(--grey); line-height:1.75; position:relative; z-index:1; }
+  .covered-card ul { list-style:none; margin-top:18px; display:flex; flex-direction:column; gap:9px; }
+  .covered-card ul li { display:flex; align-items:flex-start; gap:9px; font-size:0.9rem; color:var(--mid); position:relative; z-index:1; }
+  .covered-card ul li::before { content:'✓'; color:var(--purple2); flex-shrink:0; margin-top:1px; font-weight:800; }
+
+  /* RESULTS */
+  .results-bg { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:90px 24px; }
+  .results-wrap { max-width:1000px; margin:0 auto; text-align:center; }
+  .results-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:52px; text-align:left; }
+  @media(max-width:720px){ .results-grid{grid-template-columns:1fr;} }
+  .result-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:36px 28px; }
+  .result-tag { display:inline-block; font-size:0.67rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--purple2); border:1px solid rgba(108,99,255,0.4); padding:4px 12px; border-radius:100px; margin-bottom:18px; }
+  .result-big { font-size:3rem; font-weight:900; line-height:1; color:var(--white); margin-bottom:10px; letter-spacing:-0.02em; }
+  .result-big span { color:var(--purple2); }
+  .result-desc { font-size:0.9rem; color:var(--grey); line-height:1.65; }
+  .result-name { margin-top:18px; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--mid); }
+
+  /* TESTIMONIAL VIDEOS */
+  .testimonial-videos { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px; }
+  @media(max-width:720px){ .testimonial-videos{grid-template-columns:1fr;} }
+  .testimonial-video-card { background:var(--card); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .testimonial-video-label { padding:16px 20px 12px; display:flex; flex-direction:column; gap:4px; }
+  .tv-name { font-size:0.95rem; font-weight:800; color:var(--white); }
+  .tv-desc { font-size:0.78rem; color:var(--purple2); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; }
+  .testimonial-video-wrap { position:relative; width:100%; aspect-ratio:16/9; }
+  .testimonial-video-wrap wistia-player,
+  .testimonial-video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; display:block; }
+
+  /* OFFER CTA */
+  .offer-section { padding:100px 24px; text-align:center; position:relative; overflow:hidden; }
+  .offer-section::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:700px; height:700px; background:radial-gradient(circle, rgba(108,99,255,0.22) 0%, transparent 65%); pointer-events:none; }
+  .offer-card { max-width:680px; margin:0 auto; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:56px 48px; position:relative; z-index:1; }
+  @media(max-width:600px){ .offer-card{padding:40px 24px;} }
+  .offer-eyebrow { font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--purple2); margin-bottom:16px; }
+  .offer-title { font-family:'Urbanist',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:900; letter-spacing:-0.03em; line-height:1.05; margin-bottom:20px; }
+  .offer-title span { color:var(--purple2); }
+  .offer-body { font-size:1rem; color:var(--mid); line-height:1.8; margin-bottom:36px; max-width:520px; margin-left:auto; margin-right:auto; }
+  .offer-features { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:40px; text-align:left; }
+  .offer-features li { display:flex; align-items:flex-start; gap:12px; font-size:0.95rem; color:var(--mid); line-height:1.5; }
+  .offer-features li::before { content:'→'; color:var(--purple2); flex-shrink:0; font-weight:800; }
+  .offer-features li strong { color:var(--white); }
+  .btn-offer { display:block; width:100%; background:var(--purple); color:#fff; font-size:1.05rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:22px 40px; border:none; cursor:pointer; text-decoration:none; border-radius:6px; transition:background 0.2s,transform 0.2s,box-shadow 0.2s; text-align:center; }
+  .btn-offer:hover { background:var(--purple2); transform:translateY(-2px); box-shadow:0 12px 48px var(--purple-glow); }
+  .offer-guarantee { margin-top:16px; font-size:0.78rem; color:var(--grey); letter-spacing:0.04em; }
+  .offer-guarantee span { color:var(--gold); font-weight:700; }
+
+  /* STICKY MOBILE BAR */
+  .sticky-cta {
+    display:none; position:fixed; bottom:0; left:0; right:0; z-index:300;
+    background:rgba(11,13,20,0.97); backdrop-filter:blur(14px);
+    border-top:1px solid var(--border);
+    padding:12px 20px; flex-direction:column; align-items:center; gap:6px;
+  }
+  .sticky-cta-label { font-size:0.72rem; color:var(--mid); font-weight:600; letter-spacing:0.04em; }
+  .sticky-cta-label span { color:var(--red); font-weight:700; }
+  .btn-sticky { display:block; width:100%; max-width:440px; background:var(--purple); color:#fff; font-size:0.9rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:15px 24px; border:none; cursor:pointer; text-decoration:none; border-radius:6px; text-align:center; transition:background 0.2s; }
+  .btn-sticky:hover { background:var(--purple2); }
+  @media(max-width:760px){ .sticky-cta{display:flex;} body{padding-bottom:100px;} }
+
+  /* HOST STRIP */
+  .host-strip { background:var(--dark); border-top:1px solid var(--border); padding:60px 24px; }
+  .host-inner { max-width:700px; margin:0 auto; display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
+  .host-img { width:90px; height:90px; border-radius:50%; border:2px solid var(--border); overflow:hidden; flex-shrink:0; background:var(--card); }
+  .host-img img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+  .host-text h4 { font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:4px; }
+  .host-text p { font-size:0.88rem; color:var(--mid); line-height:1.65; }
+  .host-handle { font-size:0.8rem; color:var(--purple2); font-weight:700; margin-top:6px; }
+
+  /* FOOTER */
+  footer { border-top:1px solid var(--border); padding:28px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.8rem; color:var(--grey); }
+  .footer-logo { font-size:1rem; font-weight:900; color:var(--white); }
+  .footer-logo span { color:var(--purple2); }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+  @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease,transform 0.65s ease; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+
+  @media(max-width:600px){
+    .nav-center{display:none;}
+    .top-nav{padding:0 16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY TOP NAV -->
+<div class="top-nav">
+  <div class="replay-badge"><div class="replay-dot"></div>Replay Available</div>
+  <div class="nav-center">⏳&nbsp; Replay Expires In &nbsp;<span id="nav-expire" style="color:var(--red);font-weight:800;"></span></div>
+  <div class="nav-right">🔥 Limited Time — Watch Before It's Gone</div>
+</div>
+
+<!-- EXPIRY COUNTDOWN BAR -->
+<div class="expire-bar">
+  <div class="expire-label">⚠️ This replay expires in:</div>
+  <div class="expire-cd">
+    <div class="ecd-block"><div class="ecd-num" id="e-hours">47</div><div class="ecd-label">Hours</div></div>
+    <div class="ecd-sep">:</div>
+    <div class="ecd-block"><div class="ecd-num" id="e-mins">59</div><div class="ecd-label">Mins</div></div>
+    <div class="ecd-sep">:</div>
+    <div class="ecd-block"><div class="ecd-num" id="e-secs">59</div><div class="ecd-label">Secs</div></div>
+  </div>
+  <div class="expire-label">— after that, this page goes dark.</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Free Masterclass Replay — Videographers &amp; Agency Owners</div>
+  <h1>Watch:<br>How to Land<br><span class="hi">High-Ticket Retainer Clients</span><br>in the Next 30 Days</h1>
+  <p class="hero-sub">The full recording of Jose's live masterclass — covering the exact system videographers are using to sign <em>$5k–$10k/month retainer clients</em> without cold-DM anxiety or underpricing.</p>
+
+  <!-- REPLAY VIDEO EMBED -->
+  <div class="video-wrap" id="watch">
+    <div class="video-box">
+      <!-- REPLACE THIS WITH YOUR REPLAY VIDEO EMBED -->
+      <div class="video-embed">
+        <iframe src="REPLACE_WITH_REPLAY_VIDEO_URL" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BELOW VIDEO -->
+  <div class="cta-block">
+    <a href="#apply" class="btn">Book Your Free Strategy Call With Jose →</a>
+    <div class="cta-note">⚡ Limited spots available · <span>Replay closes in 48hrs</span></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">Client Acquisition Engine <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Agency Mindset Shift <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Retention &amp; Scaling Systems <span class="ticker-dot"></span></span>
+    <span class="ticker-item">High-Ticket Retainers <span class="ticker-dot"></span></span>
+    <span class="ticker-item">$5k–$10k Per Client <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Predictable Monthly Income <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Content To Cash Blueprint <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Client Acquisition Engine <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Agency Mindset Shift <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Retention &amp; Scaling Systems <span class="ticker-dot"></span></span>
+    <span class="ticker-item">High-Ticket Retainers <span class="ticker-dot"></span></span>
+    <span class="ticker-item">$5k–$10k Per Client <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Predictable Monthly Income <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Content To Cash Blueprint <span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- WHAT WAS COVERED -->
+<div class="covered-bg fade-up">
+  <div class="covered-wrap">
+    <p class="section-label">Inside the Masterclass</p>
+    <h2 class="section-title">Here's What Jose<br><span style="color:var(--purple2)">Broke Down Live.</span></h2>
+    <p class="section-body">Not theory. Not fluff. The exact 3-part system you need to start landing high-ticket retainers within 24–48 hours of implementing.</p>
+    <div class="covered-grid">
+      <div class="covered-card">
+        <div class="covered-num">01</div>
+        <h3><span>Client Acquisition</span> Engine</h3>
+        <p>How to position yourself, reach out, and close retainer clients at $4k, $6k, even $10k — without begging or underpricing yourself.</p>
+        <ul>
+          <li>Positioned yourself as a premium agency owner</li>
+          <li>Outreach scripts that actually convert</li>
+          <li>Closed without feeling salesy</li>
+          <li>The 24-hour lead generation method</li>
+        </ul>
+      </div>
+      <div class="covered-card">
+        <div class="covered-num">02</div>
+        <h3><span>Agency</span> Mindset</h3>
+        <p>How to rewire how you see your value, pricing, and worth — and instantly separate yourself from 90% of videographers.</p>
+        <ul>
+          <li>Why you've been undercharging all along</li>
+          <li>Own your rate with zero apology</li>
+          <li>The identity shift: gig worker → agency owner</li>
+          <li>How to stand out without lowballing</li>
+        </ul>
+      </div>
+      <div class="covered-card">
+        <div class="covered-num">03</div>
+        <h3><span>Retention</span> &amp; Scaling</h3>
+        <p>The systems that create predictable, compounding income — keeping clients for 12, 24, even 48 months.</p>
+        <ul>
+          <li>Onboarding that sets the right tone</li>
+          <li>Keep clients paying for years</li>
+          <li>Automations so nothing falls through</li>
+          <li>Scale to $10k/month and beyond</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="results-bg fade-up">
+  <div class="results-wrap">
+    <p class="section-label">Real Results</p>
+    <h2 class="section-title">People Who Did the Work<br><span style="color:var(--purple2)">Changed Their Lives.</span></h2>
+    <p class="section-body" style="margin:0 auto;text-align:center;">Not screenshots. Not hype. Real people who implemented the system and got results.</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-tag">Client Win</div>
+        <div class="result-big"><span>$32K</span>/mo</div>
+        <p class="result-desc">Brandon went from under $10k a month to $32k per month after implementing the Content To Cash blueprint. Consistent. Predictable. Real.</p>
+        <div class="result-name">Brandon — Content Agency Owner</div>
+      </div>
+      <div class="result-card">
+        <div class="result-tag">First Retainer</div>
+        <div class="result-big"><span>$6,500</span>/mo</div>
+        <p class="result-desc">Jerry landed his first ever retainer at $6,500/month in just 21 days of working with Jose. From 0 to locked in, G.</p>
+        <div class="result-name">Jerry — Videographer</div>
+      </div>
+      <div class="result-card">
+        <div class="result-tag">Jose's Agency</div>
+        <div class="result-big"><span>$50K</span>/mo</div>
+        <p class="result-desc">Jose scaled his own content agency to $50,000 per month. Longest client: 4 consecutive years. This isn't hype — it's a system you can replicate.</p>
+        <div class="result-name">Jose — CTC Founder</div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL VIDEOS -->
+    <div class="testimonial-videos">
+      <div class="testimonial-video-card">
+        <div class="testimonial-video-label">
+          <div class="tv-name">Brandon</div>
+          <div class="tv-desc">$10K → $32K/Month · Content Agency Owner</div>
+        </div>
+        <div class="testimonial-video-wrap">
+          <script src="https://fast.wistia.com/player.js" async></script>
+          <script src="https://fast.wistia.com/embed/0ayyzzsug3.js" async type="module"></script>
+          <style>wistia-player[media-id='0ayyzzsug3']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/0ayyzzsug3/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+          <wistia-player media-id="0ayyzzsug3" aspect="1.7777777777777777"></wistia-player>
+        </div>
+      </div>
+      <div class="testimonial-video-card">
+        <div class="testimonial-video-label">
+          <div class="tv-name">Doza</div>
+          <div class="tv-desc">Real Results · Content Agency Owner</div>
+        </div>
+        <div class="testimonial-video-wrap">
+          <script src="https://fast.wistia.com/player.js" async></script>
+          <script src="https://fast.wistia.com/embed/fnthgwah5u.js" async type="module"></script>
+          <style>wistia-player[media-id='fnthgwah5u']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/fnthgwah5u/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+          <wistia-player media-id="fnthgwah5u" aspect="1.7777777777777777"></wistia-player>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OFFER / NEXT STEP -->
+<section class="offer-section fade-up" id="apply">
+  <div class="offer-card">
+    <div class="offer-eyebrow">Ready to Implement This?</div>
+    <h2 class="offer-title">Book a Free Call.<br><span>Let's Build Your Acquisition System.</span></h2>
+    <p class="offer-body">You've seen the blueprint. Now it's time to map it to your specific situation — your niche, your market, your income goal. This call is free. No pressure. Just strategy.</p>
+    <ul class="offer-features">
+      <li><strong>Identify the #1 bottleneck</strong> stopping you from landing retainer clients</li>
+      <li><strong>Map out your 30-day acquisition plan</strong> based on your current situation</li>
+      <li><strong>Get clarity on your pricing</strong> and how to own it without flinching</li>
+      <li><strong>Find out if Jose's program</strong> is the right next step for you</li>
+    </ul>
+    <!-- REPLACE href WITH YOUR CALENDLY OR TYPEFORM LINK -->
+    <a href="REPLACE_WITH_BOOKING_LINK" class="btn-offer">Book My Free Strategy Call →</a>
+    <p class="offer-guarantee">100% Free · No card required · <span>Replay closes in 48 hours</span></p>
+  </div>
+</section>
+
+<!-- HOST STRIP -->
+<div class="host-strip fade-up">
+  <div class="host-inner">
+    <div class="host-img">
+      <img src="https://i.ibb.co/LXj4svTd/Whats-App-Image-2026-04-04-at-13-05-17.jpg" alt="Jose">
+    </div>
+    <div class="host-text">
+      <h4>Jose</h4>
+      <p>Content agency owner. $50K/month. Longest client: 4 consecutive years. Started with nothing in Michoacán, Mexico — now builds the system for videographers who are done playing small.</p>
+      <div class="host-handle">@yoursocialmediaguy</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Content<span>To</span>Cash</div>
+  <div>by Jose · @yoursocialmediaguy</div>
+  <div>© 2026 All rights reserved.</div>
+</footer>
+
+<!-- STICKY MOBILE CTA BAR -->
+<div class="sticky-cta">
+  <div class="sticky-cta-label">⏳ Replay closes in <span id="sticky-expire"></span></div>
+  <a href="#apply" class="btn-sticky">Book My Free Strategy Call →</a>
+</div>
+
+<script>
+  // ── EXPIRY COUNTDOWN ──────────────────────────────────────────────
+  // Set this to 48 hours from when the webinar ended
+  const expireAt = new Date(Date.now() + 48 * 60 * 60 * 1000).getTime();
+
+  function tickExpire() {
+    const diff = Math.max(0, expireAt - Date.now());
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2,'0');
+
+    document.getElementById('e-hours').textContent = pad(h);
+    document.getElementById('e-mins').textContent  = pad(m);
+    document.getElementById('e-secs').textContent  = pad(s);
+
+    const navStr = `${pad(h)}:${pad(m)}:${pad(s)}`;
+    const navEl = document.getElementById('nav-expire');
+    const stickyEl = document.getElementById('sticky-expire');
+    if(navEl) navEl.textContent = navStr;
+    if(stickyEl) stickyEl.textContent = navStr;
+
+    if(diff === 0) {
+      document.body.innerHTML = `
+        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;background:#0b0d14;color:#F0F0FF;font-family:Figtree,sans-serif;">
+          <div>
+            <div style="font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:#8B85FF;margin-bottom:20px;">Replay Expired</div>
+            <h1 style="font-family:Urbanist,sans-serif;font-size:clamp(2rem,6vw,4rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:20px;">This Replay Has Closed.</h1>
+            <p style="color:#9CA3AF;font-size:1rem;max-width:480px;margin:0 auto 40px;line-height:1.8;">The 48-hour window has passed. If you're serious about landing your first high-ticket retainer client, reach out to Jose directly.</p>
+            <a href="REPLACE_WITH_BOOKING_LINK" style="display:inline-block;background:#6C63FF;color:#fff;font-size:1rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:20px 48px;border-radius:6px;text-decoration:none;">Book a Call With Jose →</a>
+          </div>
+        </div>`;
+    }
+  }
+  tickExpire();
+  setInterval(tickExpire, 1000);
+
+  // ── SCROLL ANIMATIONS ────────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
