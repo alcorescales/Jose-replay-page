@@ -28,7 +28,6 @@
   html { scroll-behavior:smooth; }
   body { background:var(--bg); color:var(--white); font-family:'Figtree',sans-serif; line-height:1.6; overflow-x:hidden; padding-bottom:80px; }
 
-  /* TOP NAV */
   .top-nav {
     position:sticky; top:0; z-index:200;
     background:rgba(11,13,20,0.97); backdrop-filter:blur(14px);
@@ -46,9 +45,8 @@
   .nav-center { font-size:0.84rem; color:var(--mid); font-weight:500; display:flex; align-items:center; gap:6px; }
   .nav-right  { font-size:0.82rem; font-weight:700; color:var(--red); display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.03em; }
 
-  /* EXPIRE COUNTDOWN BAR */
   .expire-bar {
-    background: linear-gradient(90deg, rgba(255,68,68,0.12) 0%, rgba(255,68,68,0.06) 100%);
+    background: rgba(255,68,68,0.08);
     border-bottom: 1px solid rgba(255,68,68,0.22);
     padding: 11px 24px;
     display: flex; align-items: center; justify-content: center; gap: 14px;
@@ -61,7 +59,6 @@
   .ecd-label { font-size:0.55rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--grey); margin-top:2px; }
   .ecd-sep { font-size:1rem; font-weight:700; color:rgba(255,68,68,0.5); }
 
-  /* HERO */
   .hero {
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center; padding:70px 24px 60px; position:relative; overflow:hidden;
@@ -95,7 +92,6 @@
   }
   .hero-sub em { color:var(--white); font-style:italic; }
 
-  /* VIDEO BOX */
   .video-wrap {
     position:relative; z-index:1; margin-top:44px; width:100%; max-width:800px;
     animation:fadeDown 0.5s ease 0.24s both;
@@ -104,10 +100,8 @@
     background:var(--card); border:1px solid var(--border); border-radius:8px;
     overflow:hidden; position:relative;
   }
-  .video-embed { position:relative; padding-bottom:56.25%; height:0; }
-  .video-embed iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
+  .video-box wistia-player { display:block; width:100%; }
 
-  /* CTA BLOCK */
   .btn {
     display:block; width:100%; background:var(--purple); color:#fff;
     font-size:1rem; font-weight:800; letter-spacing:0.09em; text-transform:uppercase;
@@ -122,18 +116,15 @@
   .cta-note { font-size:0.78rem; color:var(--grey); letter-spacing:0.04em; }
   .cta-note span { color:var(--gold); font-weight:700; }
 
-  /* SECTION LABELS */
   .section-label { font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--purple2); margin-bottom:14px; }
   .section-title { font-size:clamp(2rem,4.5vw,3.4rem); font-weight:900; line-height:1.0; text-transform:uppercase; letter-spacing:-0.02em; margin-bottom:20px; }
   .section-body { font-size:1.05rem; color:var(--mid); max-width:600px; line-height:1.8; }
 
-  /* TICKER */
   .ticker-wrap { overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:14px 0; background:var(--card); }
   .ticker-inner { display:flex; gap:56px; animation:ticker 22s linear infinite; width:max-content; }
   .ticker-item { font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); white-space:nowrap; display:flex; align-items:center; gap:14px; }
   .ticker-dot { width:4px; height:4px; background:var(--purple); border-radius:50%; }
 
-  /* WHAT WAS COVERED */
   .covered-bg { background:var(--dark); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:90px 5%; }
   .covered-wrap { max-width:1100px; margin:0 auto; }
   .covered-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:52px; }
@@ -148,7 +139,6 @@
   .covered-card ul li { display:flex; align-items:flex-start; gap:9px; font-size:0.9rem; color:var(--mid); position:relative; z-index:1; }
   .covered-card ul li::before { content:'✓'; color:var(--purple2); flex-shrink:0; margin-top:1px; font-weight:800; }
 
-  /* RESULTS */
   .results-bg { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:90px 24px; }
   .results-wrap { max-width:1000px; margin:0 auto; text-align:center; }
   .results-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:52px; text-align:left; }
@@ -160,7 +150,6 @@
   .result-desc { font-size:0.9rem; color:var(--grey); line-height:1.65; }
   .result-name { margin-top:18px; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--mid); }
 
-  /* TESTIMONIAL VIDEOS */
   .testimonial-videos { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px; }
   @media(max-width:720px){ .testimonial-videos{grid-template-columns:1fr;} }
   .testimonial-video-card { background:var(--card); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -168,10 +157,8 @@
   .tv-name { font-size:0.95rem; font-weight:800; color:var(--white); }
   .tv-desc { font-size:0.78rem; color:var(--purple2); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; }
   .testimonial-video-wrap { position:relative; width:100%; aspect-ratio:16/9; }
-  .testimonial-video-wrap wistia-player,
-  .testimonial-video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; display:block; }
+  .testimonial-video-wrap wistia-player { position:absolute; top:0; left:0; width:100%; height:100%; display:block; }
 
-  /* OFFER CTA */
   .offer-section { padding:100px 24px; text-align:center; position:relative; overflow:hidden; }
   .offer-section::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:700px; height:700px; background:radial-gradient(circle, rgba(108,99,255,0.22) 0%, transparent 65%); pointer-events:none; }
   .offer-card { max-width:680px; margin:0 auto; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:56px 48px; position:relative; z-index:1; }
@@ -189,7 +176,6 @@
   .offer-guarantee { margin-top:16px; font-size:0.78rem; color:var(--grey); letter-spacing:0.04em; }
   .offer-guarantee span { color:var(--gold); font-weight:700; }
 
-  /* STICKY MOBILE BAR */
   .sticky-cta {
     display:none; position:fixed; bottom:0; left:0; right:0; z-index:300;
     background:rgba(11,13,20,0.97); backdrop-filter:blur(14px);
@@ -202,7 +188,6 @@
   .btn-sticky:hover { background:var(--purple2); }
   @media(max-width:760px){ .sticky-cta{display:flex;} body{padding-bottom:100px;} }
 
-  /* HOST STRIP */
   .host-strip { background:var(--dark); border-top:1px solid var(--border); padding:60px 24px; }
   .host-inner { max-width:700px; margin:0 auto; display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
   .host-img { width:90px; height:90px; border-radius:50%; border:2px solid var(--border); overflow:hidden; flex-shrink:0; background:var(--card); }
@@ -211,34 +196,27 @@
   .host-text p { font-size:0.88rem; color:var(--mid); line-height:1.65; }
   .host-handle { font-size:0.8rem; color:var(--purple2); font-weight:700; margin-top:6px; }
 
-  /* FOOTER */
   footer { border-top:1px solid var(--border); padding:28px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.8rem; color:var(--grey); }
   .footer-logo { font-size:1rem; font-weight:900; color:var(--white); }
   .footer-logo span { color:var(--purple2); }
 
-  /* ANIMATIONS */
   @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
   @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
   .fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease,transform 0.65s ease; }
   .fade-up.visible { opacity:1; transform:translateY(0); }
 
-  @media(max-width:600px){
-    .nav-center{display:none;}
-    .top-nav{padding:0 16px;}
-  }
+  @media(max-width:600px){ .nav-center{display:none;} .top-nav{padding:0 16px;} }
 </style>
 </head>
 <body>
 
-<!-- STICKY TOP NAV -->
 <div class="top-nav">
   <div class="replay-badge"><div class="replay-dot"></div>Replay Available</div>
   <div class="nav-center">⏳&nbsp; Replay Expires In &nbsp;<span id="nav-expire" style="color:var(--red);font-weight:800;"></span></div>
   <div class="nav-right">🔥 Limited Time — Watch Before It's Gone</div>
 </div>
 
-<!-- EXPIRY COUNTDOWN BAR -->
 <div class="expire-bar">
   <div class="expire-label">⚠️ This replay expires in:</div>
   <div class="expire-cd">
@@ -251,30 +229,26 @@
   <div class="expire-label">— after that, this page goes dark.</div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-badge">Free Masterclass Replay — Videographers &amp; Agency Owners</div>
   <h1>Watch:<br>How to Land<br><span class="hi">High-Ticket Retainer Clients</span><br>in the Next 30 Days</h1>
   <p class="hero-sub">The full recording of Jose's live masterclass — covering the exact system videographers are using to sign <em>$5k–$10k/month retainer clients</em> without cold-DM anxiety or underpricing.</p>
 
-  <!-- REPLAY VIDEO EMBED -->
   <div class="video-wrap" id="watch">
     <div class="video-box">
-      <!-- REPLACE THIS WITH YOUR REPLAY VIDEO EMBED -->
-      <div class="video-embed">
-        <iframe src="REPLACE_WITH_REPLAY_VIDEO_URL" frameborder="0" allowfullscreen></iframe>
-      </div>
+      <script src="https://fast.wistia.com/player.js" async></script>
+      <script src="https://fast.wistia.com/embed/drbmahoteq.js" async type="module"></script>
+      <style>wistia-player[media-id='drbmahoteq']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/drbmahoteq/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+      <wistia-player media-id="drbmahoteq" aspect="1.7777777777777777"></wistia-player>
     </div>
   </div>
 
-  <!-- CTA BELOW VIDEO -->
   <div class="cta-block">
     <a href="#apply" class="btn">Book Your Free Strategy Call With Jose →</a>
     <div class="cta-note">⚡ Limited spots available · <span>Replay closes in 48hrs</span></div>
   </div>
 </section>
 
-<!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-inner">
     <span class="ticker-item">Client Acquisition Engine <span class="ticker-dot"></span></span>
@@ -294,7 +268,6 @@
   </div>
 </div>
 
-<!-- WHAT WAS COVERED -->
 <div class="covered-bg fade-up">
   <div class="covered-wrap">
     <p class="section-label">Inside the Masterclass</p>
@@ -306,9 +279,9 @@
         <h3><span>Client Acquisition</span> Engine</h3>
         <p>How to position yourself, reach out, and close retainer clients at $4k, $6k, even $10k — without begging or underpricing yourself.</p>
         <ul>
-          <li>Positioned yourself as a premium agency owner</li>
+          <li>Position yourself as a premium agency owner</li>
           <li>Outreach scripts that actually convert</li>
-          <li>Closed without feeling salesy</li>
+          <li>Close without feeling salesy</li>
           <li>The 24-hour lead generation method</li>
         </ul>
       </div>
@@ -338,7 +311,6 @@
   </div>
 </div>
 
-<!-- RESULTS -->
 <div class="results-bg fade-up">
   <div class="results-wrap">
     <p class="section-label">Real Results</p>
@@ -365,7 +337,6 @@
       </div>
     </div>
 
-    <!-- TESTIMONIAL VIDEOS -->
     <div class="testimonial-videos">
       <div class="testimonial-video-card">
         <div class="testimonial-video-label">
@@ -395,7 +366,6 @@
   </div>
 </div>
 
-<!-- OFFER / NEXT STEP -->
 <section class="offer-section fade-up" id="apply">
   <div class="offer-card">
     <div class="offer-eyebrow">Ready to Implement This?</div>
@@ -407,13 +377,11 @@
       <li><strong>Get clarity on your pricing</strong> and how to own it without flinching</li>
       <li><strong>Find out if Jose's program</strong> is the right next step for you</li>
     </ul>
-    <!-- REPLACE href WITH YOUR CALENDLY OR TYPEFORM LINK -->
     <a href="REPLACE_WITH_BOOKING_LINK" class="btn-offer">Book My Free Strategy Call →</a>
     <p class="offer-guarantee">100% Free · No card required · <span>Replay closes in 48 hours</span></p>
   </div>
 </section>
 
-<!-- HOST STRIP -->
 <div class="host-strip fade-up">
   <div class="host-inner">
     <div class="host-img">
@@ -427,22 +395,18 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Content<span>To</span>Cash</div>
   <div>by Jose · @yoursocialmediaguy</div>
   <div>© 2026 All rights reserved.</div>
 </footer>
 
-<!-- STICKY MOBILE CTA BAR -->
 <div class="sticky-cta">
   <div class="sticky-cta-label">⏳ Replay closes in <span id="sticky-expire"></span></div>
   <a href="#apply" class="btn-sticky">Book My Free Strategy Call →</a>
 </div>
 
 <script>
-  // ── EXPIRY COUNTDOWN ──────────────────────────────────────────────
-  // Set this to 48 hours from when the webinar ended
   const expireAt = new Date(Date.now() + 48 * 60 * 60 * 1000).getTime();
 
   function tickExpire() {
@@ -456,28 +420,19 @@
     document.getElementById('e-mins').textContent  = pad(m);
     document.getElementById('e-secs').textContent  = pad(s);
 
-    const navStr = `${pad(h)}:${pad(m)}:${pad(s)}`;
+    const navStr = pad(h)+':'+pad(m)+':'+pad(s);
     const navEl = document.getElementById('nav-expire');
     const stickyEl = document.getElementById('sticky-expire');
     if(navEl) navEl.textContent = navStr;
     if(stickyEl) stickyEl.textContent = navStr;
 
     if(diff === 0) {
-      document.body.innerHTML = `
-        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;background:#0b0d14;color:#F0F0FF;font-family:Figtree,sans-serif;">
-          <div>
-            <div style="font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:#8B85FF;margin-bottom:20px;">Replay Expired</div>
-            <h1 style="font-family:Urbanist,sans-serif;font-size:clamp(2rem,6vw,4rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:20px;">This Replay Has Closed.</h1>
-            <p style="color:#9CA3AF;font-size:1rem;max-width:480px;margin:0 auto 40px;line-height:1.8;">The 48-hour window has passed. If you're serious about landing your first high-ticket retainer client, reach out to Jose directly.</p>
-            <a href="REPLACE_WITH_BOOKING_LINK" style="display:inline-block;background:#6C63FF;color:#fff;font-size:1rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:20px 48px;border-radius:6px;text-decoration:none;">Book a Call With Jose →</a>
-          </div>
-        </div>`;
+      document.body.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;background:#0b0d14;color:#F0F0FF;font-family:Figtree,sans-serif;"><div><div style="font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:#8B85FF;margin-bottom:20px;">Replay Expired</div><h1 style="font-family:Urbanist,sans-serif;font-size:clamp(2rem,6vw,4rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:20px;">This Replay Has Closed.</h1><p style="color:#9CA3AF;font-size:1rem;max-width:480px;margin:0 auto 40px;line-height:1.8;">The 48-hour window has passed. If you\'re serious about landing your first high-ticket retainer client, reach out to Jose directly.</p><a href="REPLACE_WITH_BOOKING_LINK" style="display:inline-block;background:#6C63FF;color:#fff;font-size:1rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:20px 48px;border-radius:6px;text-decoration:none;">Book a Call With Jose →</a></div></div>';
     }
   }
   tickExpire();
   setInterval(tickExpire, 1000);
 
-  // ── SCROLL ANIMATIONS ────────────────────────────────────────────
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
